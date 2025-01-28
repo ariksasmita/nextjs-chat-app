@@ -1,14 +1,16 @@
 # Next.js Chat Application
 
-Aplikasi chat real-time yang dibangun menggunakan Next.js, Socket.IO, dan Express.
+A real-time chat application built with Next.js, Socket.IO, and Express.
 
-## Struktur Project
+## Project Structure
+```
 nextjs-chat-app/
-├── client/ # Aplikasi frontend Next.js
-├── server/ # Server Express & Socket.IO
-└── package.json # Root package.json untuk workspace
+├── client/             # Next.js frontend application
+├── server/             # Express & Socket.IO server
+└── package.json        # Root package.json for workspace
+```
 
-## Teknologi yang Digunakan
+## Technologies Used
 
 - **Frontend**:
   - Next.js 14
@@ -21,30 +23,35 @@ nextjs-chat-app/
   - Socket.IO
   - TypeScript
 
-## Cara Memulai
+## Getting Started
 
 1. Clone repository
 ```bash
-git clone [url-repository]
+git clone [repository-url]
 cd nextjs-chat-app
 ```
 
 2. Install dependencies
 ```bash
+npm install
+```
+
+3. Run the application
+```bash
 npm run dev
 ```
 
-Perintah ini akan menjalankan server dan client secara bersamaan:
+This command will run both server and client simultaneously:
 - Client: http://localhost:3000
 - Server: http://localhost:5000
 
-## Scripts yang Tersedia
+## Available Scripts
 
-- `npm run dev` - Menjalankan server dan client secara bersamaan
-- `npm run client` - Menjalankan aplikasi client saja
-- `npm run server` - Menjalankan server saja
+- `npm run dev` - Run both server and client concurrently
+- `npm run client` - Run client application only
+- `npm run server` - Run server only
 
-## Fitur
+## Features
 
 - Real-time chat
 - Multiple room support
@@ -52,10 +59,10 @@ Perintah ini akan menjalankan server dan client secara bersamaan:
 - Online status
 - Message history
 
-## Kontribusi
+## Contributing
 
-Silakan buat pull request untuk kontribusi. Untuk perubahan besar, harap buka issue terlebih dahulu untuk mendiskusikan perubahan yang diinginkan.
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-## Lisensi
+## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
