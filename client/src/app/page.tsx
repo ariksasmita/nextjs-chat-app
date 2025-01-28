@@ -3,9 +3,14 @@
 import { useState, useEffect } from 'react';
 import ChatWindow from '../components/ChatWindow';
 
+interface Message {
+  message: string;
+  sender: string;
+}
+
 const Home = () => {
-  const [messages, setMessages] = useState([]);
-  const [socket, setSocket] = useState(null);
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [socket, setSocket] = useState<WebSocket | null>(null);
 
   useEffect(() => {
     const newSocket = new WebSocket('ws://localhost:3001');
@@ -27,7 +32,7 @@ const Home = () => {
     }
   }, []);
 
-  const sendMessage = (message, sender) => {
+  const sendMessage = (message: string, sender: string) => {
     if (socket) {
       socket?.send(JSON.stringify({ message, sender }));
     }
@@ -39,12 +44,14 @@ const Home = () => {
         <ChatWindow
           title="Left Chat"
           messages={messages}
-          onSendMessage={(message) => sendMessage(message, 'left')}
+          location={"left"}
+          onSendMessage={(message: string) => sendMessage(message, 'left')}
         />
         <ChatWindow
           title="Right Chat"
           messages={messages}
-          onSendMessage={(message) => sendMessage(message, 'right')}
+          location={"right"}
+          onSendMessage={(message: string) => sendMessage(message, 'right')}
         />
       </div>
     </div>

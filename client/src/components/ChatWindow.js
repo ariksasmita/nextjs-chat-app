@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import ChatMessage from "./ChatMessage";
+import PropTypes from 'prop-types';
 
-const ChatWindow = ({ title, messages, onSendMessage }) => {
+const ChatWindow = ({ title, messages, onSendMessage, location }) => {
   const [input, setInput] = useState('');
   const messagesEndRef = useRef(null);
   const [wiggle, setWiggle] = useState(false);
@@ -25,11 +26,11 @@ const ChatWindow = ({ title, messages, onSendMessage }) => {
   };
 
   return (
-    <div className="w-1/2 p-4 border rounded-lg bg-white shadow-md ${wiggle ? 'animate-wiggle' : ''}">
+    <div className={`w-1/2 p-4 border rounded-lg bg-white shadow-md ${wiggle ? 'animate-wiggle' : ''}`}>
       <h2 className="text-x1 font-bold mb-4">{title}</h2>
       <div className="h-64 overflow-y-auto mb-4">
         {messages.map((message, index) => (
-          <ChatMessage key={index} message={message} />
+          <ChatMessage key={index} message={message} location={location} />
         ))}
         <div ref={messagesEndRef} />
       </div>
@@ -50,6 +51,13 @@ const ChatWindow = ({ title, messages, onSendMessage }) => {
       </div>
     </div>
   );
+};
+
+ChatWindow.propTypes = {
+  title: PropTypes.string.isRequired,
+  messages: PropTypes.array.isRequired,
+  onSendMessage: PropTypes.func.isRequired,
+  location: PropTypes.string.isRequired
 };
 
 export default ChatWindow;
