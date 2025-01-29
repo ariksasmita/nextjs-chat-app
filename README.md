@@ -52,14 +52,6 @@ This command will run both server and client simultaneously:
 - `npm run client` - Run client application only
 - `npm run server` - Run server only
 
-## Features
-
-- Real-time chat
-- Multiple room support
-- Typing indicators
-- Online status
-- Message history
-
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
