@@ -1,3 +1,4 @@
+![demo_image](https://github.com/ariksasmita/nextjs-chat-app/blob/main/chat_demo.png?raw=true)
 # Next.js Chat Application
 
 A real-time chat application built with Next.js, Socket.IO, and Express.
