@@ -13,11 +13,13 @@ const ChatWindow = ({ title, messages, onSendMessage, location }) => {
 
   useEffect(() => {
     scrollToBottom();
-    if (messages.length > 0) {
+    const lastMessage = messages[messages.length - 1]
+    const isCurrentUser = lastMessage ? lastMessage.sender === location : false
+    if (messages.length > 0 && !isCurrentUser) {
       setWiggle(true);
       setTimeout(() => setWiggle(false), 500);
     }
-  }, [messages]);
+  }, [messages, location]);
 
   const handleSendMessage = () => {
     if (input.trim() === '') return;
@@ -26,8 +28,8 @@ const ChatWindow = ({ title, messages, onSendMessage, location }) => {
   };
 
   return (
-    <div className={`w-1/2 p-4 border rounded-lg bg-white shadow-md ${wiggle ? 'animate-wiggle' : ''}`}>
-      <h2 className="text-x1 font-bold mb-4">{title}</h2>
+    <div className={`w-1/2 p-4 border rounded-lg bg-white shadow-md ${wiggle ? 'animation-wiggle' : ''}`}>
+      <h2 className="text-x1 font-bold mb-4 text-black">{title}</h2>
       <div className="h-64 overflow-y-auto mb-4">
         {messages.map((message, index) => (
           <ChatMessage key={index} message={message} location={location} />
