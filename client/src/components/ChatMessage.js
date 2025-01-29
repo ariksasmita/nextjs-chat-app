@@ -4,9 +4,13 @@ const ChatMessage = ({ message, location }) => {
   const isCurrentUser = message.sender === location;
 
   return (
-    <div className={`chat-message mb-2 ${isCurrentUser ? 'text-right' : 'text-left'}`}>
-      <p className="font-bold">{message.sender}:</p>
-      <p className="text-black bg-gray-100 p-2 rouded-lg">{message.message}</p>
+    <div className={`chat-message mb-2 w-full max-w-3xl ${isCurrentUser ? 'text-right' : 'text-left'}`}>
+      <p className="font-bold text-black">{message.sender}</p>
+      <p className={`text-black p-2 rounded-lg inline-block max-w-full ${
+        isCurrentUser ? 'bg-green-300' : 'bg-gray-200'
+      }`}>
+        {message.message}
+      </p>
     </div>
   );
 };
