@@ -39,6 +39,11 @@ const ChatWindow = ({ title, messages, onSendMessage, location }) => {
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              handleSendMessage();
+            }
+          }}
           className="flex-1 p-2 border rounded-l-lg"
           placeholder="Type a message..."
         />
